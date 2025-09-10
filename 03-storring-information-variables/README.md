@@ -80,7 +80,47 @@ console.log(city);
 
 ---
 
-## 🏷️ 4. Rules for Naming Variables
+
+## 🎯4. Declaring & Initializing
+
+```js
+let myName;  // Declared, but no value yet
+console.log(myName); // undefined
+
+myName = "Ali";  // Now initialized
+console.log(myName); // Ali
+```
+
+Or directly:
+
+```js
+let myAge = 21;
+```
+
+---
+
+## ♻️ 8. Updating Variables
+
+```js
+let city = "Lahore";
+city = "Islamabad"; // Allowed with let
+```
+
+```js
+const PI = 3.14;
+PI = 3.14159; // ❌ Error! const cannot be changed
+```
+
+👉 But **objects and arrays with const can still change inside**:
+
+```js
+const person = { name: "Ali" };
+person.name = "Sara"; // ✅ Allowed
+```
+
+---
+
+## 🏷️ 5. Rules for Naming Variables
 
 ✅ Valid:
 
@@ -104,24 +144,101 @@ let firstName = "Ali";
 
 ---
 
-## 🧠 5. Variable Types (Data Types)
 
-| Type          | Example         | Description                     |
-| ------------- | --------------- | ------------------------------- |
-| **String**    | `"Ali"`         | Text (inside quotes)            |
-| **Number**    | `25`            | Any numeric value               |
-| **Boolean**   | `true`, `false` | Yes/No, On/Off                  |
-| **Undefined** | —               | Declared but not assigned yet   |
-| **Null**      | `null`          | Empty value (set intentionally) |
+# 🧠 6. Variable Types (Data Types)
+
+In programming, **data types** define the kind of values a variable can store.
+Think of it like different types of containers in your kitchen:
+
+* A **cup** can hold tea or coffee (small, fixed things).
+* A **bucket** can hold a lot of water (bigger, flexible things).
+* A **jar** can hold multiple candies (collections of items).
+
+Similarly, in JavaScript, variables are categorized into two broad types:
+
+---
+
+## ✅ Primitive Data Types
+
+Primitive types represent **simple, single values**.
+They are **immutable** (cannot be changed directly) and are stored **by value** in memory.
+
+### 🔑 Key Features:
+
+* Hold **one value at a time**.
+* Stored directly in memory.
+* If you copy a primitive value to another variable, both work **independently**.
+
+### 📋 Primitive Types in JavaScript:
+
+1. **String** → Text values (e.g., `"Hello"`, `'World'`)
+2. **Number** → Numbers (both integers and decimals, e.g., `42`, `3.14`)
+3. **Boolean** → True or false values (`true`, `false`)
+4. **Null** → An intentional empty value (e.g., `let x = null;`)
+5. **Undefined** → A variable declared but not assigned any value
+6. **Symbol** → Unique identifiers (mostly used in advanced cases)
+7. **BigInt** → For very large numbers beyond normal number limits
+
 
 👉 **Difference between `null` and `undefined`:**
 
 * `undefined` = “I don’t know what’s inside yet”
 * `null` = “I know it’s empty, I left it blank on purpose”
 
+
 ---
 
-# 🧠 6. How Computers Store Variables in Memory (RAM)
+## ✅ Non-Primitive (Reference) Data Types
+
+Non-primitive types are **collections or complex structures**.
+They are stored **by reference** in memory, meaning the variable stores the **address/location** of the object, not the actual value.
+
+### 🔑 Key Features:
+
+* Can hold **multiple values** or structured data.
+* Stored in memory by **reference**.
+* If you copy a non-primitive value, both variables point to the **same object** in memory.
+
+### 📋 Non-Primitive Types in JavaScript:
+
+1. **Object** → General collection of key-value pairs.
+
+   ```js
+   let person = { name: "Ali", age: 25 };
+   ```
+2. **Array** → Ordered list of values.
+
+   ```js
+   let fruits = ["Apple", "Banana", "Mango"];
+   ```
+3. **Function** → A block of code that can be reused.
+
+   ```js
+   function greet() { console.log("Hello!"); }
+   ```
+
+---
+
+## 🔍 Difference Between Primitive and Non-Primitive Types
+
+| Feature              | Primitive Types                                          | Non-Primitive Types                            |
+| -------------------- | -------------------------------------------------------- | ---------------------------------------------- |
+| **Stored in memory** | By **value**                                             | By **reference**                               |
+| **Mutability**       | Immutable (value can’t be directly changed)              | Mutable (values inside can change)             |
+| **Examples**         | String, Number, Boolean, Null, Undefined, Symbol, BigInt | Object, Array, Function                        |
+| **Copy Behavior**    | Copies the actual value                                  | Copies the reference (both point to same data) |
+
+---
+
+## 🎯 Real-Life Analogy
+
+* **Primitive type**: Imagine writing your phone number on a piece of paper. If you copy it to another paper, both papers now have separate numbers. Changing one doesn’t affect the other.
+* **Non-primitive type**: Imagine giving someone your house address. If two people have the same address, they both point to the **same house**. If one person paints the house blue, the other will also see a blue house.
+
+
+---
+
+# 🧠 7. How Computers Store Variables in Memory (RAM)
 
 When you declare a variable:
 
@@ -216,47 +333,7 @@ This cleanup is called **Garbage Collection**.
 
 
 
-
-## 🎯 7. Declaring & Initializing
-
-```js
-let myName;  // Declared, but no value yet
-console.log(myName); // undefined
-
-myName = "Ali";  // Now initialized
-console.log(myName); // Ali
-```
-
-Or directly:
-
-```js
-let myAge = 21;
-```
-
----
-
-## ♻️ 8. Updating Variables
-
-```js
-let city = "Lahore";
-city = "Islamabad"; // Allowed with let
-```
-
-```js
-const PI = 3.14;
-PI = 3.14159; // ❌ Error! const cannot be changed
-```
-
-👉 But **objects and arrays with const can still change inside**:
-
-```js
-const person = { name: "Ali" };
-person.name = "Sara"; // ✅ Allowed
-```
-
----
-
-## 🧱 9. Scope — Where Can You Access Variables?
+## 🧱 8. Scope — Where Can You Access Variables?
 
 ### 🔹 Global Scope
 
@@ -292,7 +369,7 @@ if (true) {
 
 ---
 
-## 🚀 10. Hoisting (Simple Explanation)
+## 🚀 9. Hoisting (Simple Explanation)
 
 👉 Hoisting means **JavaScript moves variable declarations to the top before running the code**.
 
@@ -308,7 +385,7 @@ That’s why we avoid `var`.
 
 ---
 
-## 🔁 11. Re-declaration vs Re-assignment
+## 🔁 10. Re-declaration vs Re-assignment
 
 | Keyword | Re-declare? | Re-assign? |
 | ------- | ----------- | ---------- |
@@ -334,7 +411,7 @@ console.log(isLearningJS);
 
 ---
 
-## ❌ 13. Common Mistakes
+## ❌ 11. Common Mistakes
 
 | Code                  | Problem                      |
 | --------------------- | ---------------------------- |
@@ -360,7 +437,7 @@ A: Use **`const` by default**, and only use `let` when you need to reassign.
 
 ---
 
-## 🎯 15. Mini Assignment
+## 🎯 12. Mini Assignment
 
 1. Declare 5 variables:
 
@@ -388,24 +465,6 @@ console.log("Product:", a * b);
 console.log("Division:", a / b);
 ```
 
----
-
-## 💡 17. Mini Project Idea
-
-🎯 **Student Info Card**
-Make a small script that stores and prints student details.
-
-```js
-const studentName = "Ali";
-const studentAge = 20;
-const isEnrolled = true;
-const course = "JavaScript Basics";
-
-console.log("Student Name:", studentName);
-console.log("Age:", studentAge);
-console.log("Enrolled:", isEnrolled);
-console.log("Course:", course);
-```
 
 
 # Variables Advance Concepts.
