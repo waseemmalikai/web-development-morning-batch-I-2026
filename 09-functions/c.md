@@ -1,5 +1,4 @@
-
-# 📘 09 -  Functions Basics in javaScript
+# 📘 JavaScript Functions
 
 Functions are one of the **main building blocks** of JavaScript. They allow code to be reused many times without repetition, making scripts clean, efficient, and maintainable.
 
@@ -43,7 +42,7 @@ showMessage(); // executes again
 
 ---
 
-## 🔹 Local / functin scope Variables
+## 🔹 Local Variables
 
 Variables declared inside a function are only visible inside that function.
 
@@ -59,7 +58,7 @@ alert(message); // ❌ Error
 
 ---
 
-## 🔹 Outer / global scope Variables
+## 🔹 Outer Variables
 
 A function can also access variables declared outside of it.
 
@@ -442,5 +441,3 @@ pow(1, 100) = 1
 ```
 
 👉 Build a webpage that prompts for `x` and `n` and shows result.
-
----
